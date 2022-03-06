@@ -26,6 +26,7 @@ const Product = () => {
             layout="fill"
             objectFit="cover"
             className="rounded-2xl"
+            unoptimized={true}
           />
         </div>
         <div className="flex flex-col text-content">
