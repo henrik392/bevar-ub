@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer components {
+  .nav-item {
+    @apply md:ml-8 align-baseline font-bold transition-all duration-300 ease-in-out;
+    &:hover {
+      @apply text-primary-500;
+    }
+  }
+  .active {
+    @apply text-primary-300 !important;
+  }
+
+  h1 {
+    @apply font-bold leading-tight text-5xl sm:text-6xl md:text-5xl lg:text-6xl xl:text-7xl mb-2;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl leading-tight font-bold mb-2 md:mb-5;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl md:text-xl lg:text-2xl;
+  }
+
+  p {
+    @apply text-[15px] sm:text-[17px];
+  }
+
+  input {
+    @apply block;
+  }
+
+  .call-to-action {
+    @apply text-white rounded-md bg-primary-300 hover:bg-primary-400
+    px-14 sm:px-16 md:px-14 lg:px-16 py-2 font-bold
+    text-xl sm:text-2xl md:text-xl lg:text-2xl;
+  }
+
+  .lader {
+    @apply hidden md:block absolute xl:ml-52 lg:ml-32 md:ml-24 ml-16 mt-28
+      aspect-[843/190] w-[500px] lg:w-[650px]
+      left-[-150px] lg:left-[-170px] top-[250px] lg:top-[310px]
+      z-[-1];
+  }
+
+  .section {
+    @apply xl:px-52 lg:px-32 md:px-24 px-16 py-32;
+  }
+
+  .responsive-layout {
+    @apply flex flex-col lg:flex-row;
+    .image-content {
+      @apply lg:w-[500px] lg:h-[300px] max-w-[1000px] lg:flex-1 order-1 lg:order-none mb-12 lg:mb-0;
+    }
+    .image-content.relative {
+      @apply h-[320px];
+    }
+    .text-content {
+      @apply lg:flex-1 order-2 lg:order-none;
+    }
+
+    .image-content:first-child {
+      @apply mr-0 lg:mr-20;
+    }
+    .text-content:first-child {
+      @apply mr-0 lg:mr-20;
+    }
+  }
+
+  .responsive-padding {
+    @apply xl:px-52 lg:px-32  md:px-24 px-16;
+  }
+
+  .input-element {
+    @apply mb-6;
+  }
+}
+
+.menu-icon {
+  svg {
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 1.5;
+    cursor: pointer;
+    clip: none;
+  }
+
+  svg path {
+    fill: none;
+    stroke: black;
+    stroke-width: 3px;
+  }
+
+  svg + svg {
+    margin-left: 1.5rem;
+  }
+
+  .icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #top,
+  #bottom {
+    stroke-dasharray: 30, 75.39;
+    transition: all 0.6s cubic-bezier(0.6, 0.33, 0.67, 1.29);
+  }
+
+  svg.active #top,
+  svg.active #bottom {
+    stroke-dasharray: 75.39;
+    stroke-dashoffset: -60;
+  }
+
+  svg:nth-child(2) {
+    transform: rotate(0deg);
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  svg:nth-child(2) path {
+    transition: all 0.4s ease-in-out 0.6s;
+  }
+
+  svg:nth-child(2).active {
+    transform: rotate(180deg);
+  }
+
+  .rocket #top {
+    stroke-dasharray: 30, 88;
+  }
+}
