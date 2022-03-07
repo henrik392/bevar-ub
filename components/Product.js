@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useState, useEffect, useMemo } from "react";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { FaShippingFast } from "react-icons/fa";
-import { render } from "react-dom";
+import { v4 as uuidv4 } from "uuid";
 
 const colors = [
   "Hvit",
@@ -27,13 +27,13 @@ const products = [
     quantity: 3,
     price: 119,
     id: "3stk",
-    title: "3 stk - 119 kr",
+    title: "3 stk - 119 kr [20% rabatt]",
   },
   {
     quantity: 10,
     price: 299,
     id: "regnbuepakke",
-    title: "Regnbuepakke (10 stk) - 299 kr",
+    title: "Regnbuepakke (10 stk) - 299 kr [40% rabatt]",
   },
 ];
 
@@ -63,8 +63,11 @@ const Product = () => {
     }
   }, [selectedProductId, selectedProduct.quantity]);
 
-  // Create state for quantity
-  // const [quantity, setQuantity] = useState(1);
+  const mailto = `mailto:bevarub@gmail.com?subject=Jeg%20vil%20bestille%20laderbeskytter%21&body=Bestillingsid%3A%20${uuidv4()}%0A%0AProdukt%3A%20${
+    selectedProduct.title
+  }%0AFarger%3A%20${
+    selectedColorId[0][0].toUpperCase() + selectedColorId.join(", ").slice(1)
+  }%0A%0AVil%20du%20hente%20pakken%20p%C3%A5%20Amalie%20Skram%20videreg%C3%A5ende%20skole%2C%20eller%20f%C3%A5%20den%20tilsendt%20til%20din%20postkasse%3F%0A%28Hente%2Ftilsendt%29%3A%20%5Bfyll%20inn%5D%0A%0AMin%20adresse%3A%20%5Bfyll%20inn%5D%0A%0ANavn%3A%20%5Bfyll%20inn%5D%0A%0AS%C3%A5%20snart%20du%20sender%20${totalPrice}%20kr%20til%20%23727173%20p%C3%A5%20Vipps%20skal%20vi%20sende%20varen%20din%20%F0%9F%A4%97`;
 
   return (
     <section id="produkt" className="section bg-primary-200">
@@ -110,7 +113,10 @@ const Product = () => {
                 <p className="ml-2 text-xl ">Gratis frakt!</p>
               </div>
             </div>
-            <BuyButton selectedProduct={selectedProduct} />
+            {/* Remove a-tag when configured Vipps */}
+            <a href={mailto}>
+              <BuyButton selectedProduct={selectedProduct} />
+            </a>
           </div>
         </div>
       </div>
