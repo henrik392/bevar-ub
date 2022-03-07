@@ -33,7 +33,7 @@ const products = [
     quantity: 10,
     price: 299,
     id: "regnbuepakke",
-    title: "regnbuepakke (10 stk) - 299 kr",
+    title: "Regnbuepakke (10 stk) - 299 kr",
   },
 ];
 
