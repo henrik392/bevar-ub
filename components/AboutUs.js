@@ -19,10 +19,9 @@ const AboutUs = () => {
         <p>
           Etter hvert som man bruker ladere blir de slitt og ødelagt. Ikke bare
           er dette kostbart for deg, men også for klimaet. Dette er et problem
-          vi i Bevar UB ønsker å løse. Vi er en gruppe engasjerte ungdommer på
-          17 og 18 år. Vi er stolt over å tilby et produkt som kan forlenge
-          livet til laderen både ved å forebygge at den blir ødelagt og reparere
-          den når den blir knekt.
+          vi i Bevar UB ønsker å løse. Vi er en gruppe elever som går andre år
+          på videregående, og vi er stolt over å tilby et produkt som kan
+          forlenge livet til laderen din.
         </p>
       </div>
     </section>

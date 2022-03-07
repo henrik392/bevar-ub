@@ -43,6 +43,10 @@ a {
     @apply text-xl sm:text-2xl md:text-xl lg:text-2xl;
   }
 
+  h4 {
+    @apply font-bold text-lg;
+  }
+
   p {
     @apply text-[15px] sm:text-[17px];
   }

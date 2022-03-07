@@ -1,20 +1,74 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { FaShippingFast } from "react-icons/fa";
 import { render } from "react-dom";
 
+const colors = [
+  "Hvit",
+  "Svart",
+  "Rød",
+  "Oransje",
+  "Gul",
+  "Grønn",
+  "Blå",
+  "Lilla",
+  "Rosa",
+];
+
+const products = [
+  {
+    quantity: 1,
+    price: 49,
+    id: "1stk",
+    title: "1 stk - 49 kr",
+  },
+  {
+    quantity: 3,
+    price: 119,
+    id: "3stk",
+    title: "3 stk - 119 kr",
+  },
+  {
+    quantity: 10,
+    price: 299,
+    id: "regnbuepakke",
+    title: "regnbuepakke (10 stk) - 299 kr",
+  },
+];
+
 const Product = () => {
-  // Create state for dropdown
-  const [selectedSize, setSelectedSize] = useState("");
-  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedProductId, setSelectedProductId] = useState(products[0].id);
+  const [selectedProduct, setSelectedProduct] = useState(products[0]);
+  const [selectedColorId, setSelectedColorId] = useState([
+    "hvit",
+    "hvit",
+    "hvit",
+  ]);
+
+  const [totalPrice, setTotalPrice] = useState(products[0].price.toFixed(2));
+
+  useEffect(() => {
+    const product = products.find(
+      (product) => product.id === selectedProductId
+    );
+    setSelectedProduct(product);
+    setTotalPrice(product.price);
+
+    if (selectedProductId === "regnbuepakke") {
+      setSelectedColorId(colors.map((color) => color));
+    } else {
+      console.log(product.quantity);
+      setSelectedColorId(Array(product.quantity).fill("hvit"));
+    }
+  }, [selectedProductId, selectedProduct.quantity]);
 
   // Create state for quantity
-  const [quantity, setQuantity] = useState(1);
+  // const [quantity, setQuantity] = useState(1);
 
   return (
     <section id="produkt" className="section bg-primary-200">
-      <h2 className="mb-10">Laderbeskytter</h2>
+      <h2 className="mb-10">Kjøp laderbeskytter</h2>
       <div className="place-content-between bg-clip-border responsive-layout">
         <div
           className="relative image-content lg:!h-[400px]"
@@ -31,40 +85,32 @@ const Product = () => {
         </div>
         <div className="flex flex-col text-content">
           <Dropdown
-            title="Produkt"
-            options={{
-              "1stk": ["1 stk - 49 kr"],
-              "3stk": ["3 stk - 119 kr", "[19 %]"],
-              regnbue: ["Regnbuepakke (10 stk) - 299 kr", "[39 %]"],
-            }}
-            helpText="Rabatt og håndsydd tøypose om du velger felere!"
+            title="Velg produkt"
+            options={products.map((product) => {
+              return { title: product.title, id: product.id };
+            })}
+            helpText="Rabatt og håndsydd tøypose om du velger flere!"
+            setSelectedId={setSelectedProductId}
+            selectedId={selectedProductId}
           />
-          {/* Create three dropdown elements */}
+          <SelectColorDropdowns
+            colorOptions={colors.map((farge) => {
+              return { title: farge, id: farge.toLowerCase() };
+            })}
+            setSelectedId={setSelectedColorId}
+            selectedColors={selectedColorId}
+            selectedProduct={selectedProduct}
+          />
 
-          <Dropdown
-            title="Farge"
-            id="farge"
-            options={{
-              hvit: ["Hvit"],
-              svart: ["Svart"],
-              rød: ["Rød"],
-              oransje: ["Oransje"],
-              gul: ["Gul"],
-              grønn: ["Grønn"],
-              blå: ["Blå"],
-              lilla: ["Lilla"],
-              rosa: ["Rosa"],
-            }}
-          />
           <div className="mt-auto">
             <div className="flex flex-row items-center mx-4 mt-4 mb-6 font-bold place-content-between">
-              <p className="text-3xl">210 kr</p>
+              <p className="text-3xl">{totalPrice} kr</p>
               <div className="flex items-center mt-3 text-primary-800 rounded-3xl place-content-center">
                 <FaShippingFast className="" />
                 <p className="ml-2 text-xl ">Gratis frakt!</p>
               </div>
             </div>
-            <BuyButton />
+            <BuyButton selectedProduct={selectedProduct} />
           </div>
         </div>
       </div>
@@ -72,54 +118,125 @@ const Product = () => {
   );
 };
 
-const BuyButton = () => {
+const SelectColorDropdowns = ({
+  colorOptions,
+  setSelectedId,
+  selectedColors,
+  selectedProduct,
+}) => {
+  if (selectedProduct.quantity == 10) {
+    return (
+      <Dropdown
+        title={"Farge"}
+        options={[
+          {
+            title:
+              selectedProduct.id.charAt(0).toUpperCase() +
+              selectedProduct.id.slice(1),
+            id: selectedProduct.id,
+          },
+        ]}
+        setSelectedId={() => {}}
+        selectedId={selectedProduct.id}
+      />
+    );
+  }
+
+  const dropDowns = [];
+  // if (selectedProduct.quantity !== selectedColors.length) {
+  //   setSelectedColors([
+  //     ...selectedColors,
+  //     ...Array.fill(selectedProduct.quantity - selectedColors.length),
+  //   ]);
+  // }
+  for (let i = 0; i < selectedProduct.quantity; i++) {
+    dropDowns.push(
+      <div className="flex-1" key={i}>
+        <Dropdown
+          title={"Farge " + (selectedProduct.quantity > 1 ? i + 1 : "")}
+          options={colorOptions}
+          setSelectedId={(Id) => {
+            let newSelectedColors = [...selectedColors];
+            newSelectedColors[i] = Id;
+            setSelectedId(newSelectedColors);
+            console.log(newSelectedColors);
+          }}
+          selectedId={selectedColors[i]}
+          id={i}
+        />
+      </div>
+    );
+  }
+  return <div className="flex flex-row gap-2">{dropDowns} </div>;
+};
+
+const onBuyHandler = (selectedProduct) => {
+  console.log(selectedProduct);
+};
+
+const BuyButton = (selectedProduct) => {
   return (
-    <button className="flex items-center w-full h-10 p-2 font-bold text-white rounded-lg text-l bg-primary-300 border-primary-800 place-content-center">
+    <button
+      onClick={() => onBuyHandler(selectedProduct)}
+      className="flex items-center w-full h-10 p-2 font-bold text-white rounded-lg text-l bg-primary-300 border-primary-800 place-content-center"
+    >
       <RiShoppingCartLine className="w-6 h-6 mr-2" />
       Kjøp
     </button>
   );
 };
 
-// Create component "dropdown"
-const Dropdown = ({ title = "Title", id, options = {}, helpText = "" }) => {
+const Dropdown = ({
+  title = "Title",
+  options = {},
+  helpText = "",
+  setSelectedId,
+  selectedId,
+  id = "produkt",
+}) => {
+  console.log(title + ": " + selectedId);
   return (
     <div className="input-element">
       <h4 className="mx-4 mb-2">{title}</h4>
       <select
-        id={id}
         className="w-full p-3 text-gray-600 bg-white border rounded-lg border-primary-800"
+        onChange={(e) => {
+          setSelectedId(e.target.value);
+        }}
+        value={selectedId}
+        key={id}
       >
-        {Object.keys(options).map((key) => (
-          <option key={key} value={key}>
-            {options[key][0] + " "}
-            {options[key][1] || ""}
+        {options.map((option) => (
+          <option key={option.id} value={option.id}>
+            {option.title}
           </option>
         ))}
       </select>
-      <p className="mx-4 my-2 text-[13px] text-gray-700">{helpText}</p>
+      <p className="font-bold mx-4 my-2 text-[13px] text-primary-800">
+        {helpText}
+      </p>
     </div>
   );
 };
 
-const QuantityInput = ({ initialValue = 1 }) => {
-  const [currentValue, setCurrentValue] = useState(initialValue || "");
+// const QuantityInput = ({ initialValue = 1 }) => {
+//   const [currentValue, setCurrentValue] = useState(initialValue || "");
 
-  function handleChange(evt) {
-    let value = evt.target.value;
-    if (value > 0) setCurrentValue(value);
-  }
-  return (
-    <div className="input-element">
-      <h4 className="mx-4 mb-2">Antall</h4>
-      <input
-        className="w-24 p-3 text-gray-600 bg-white border rounded-lg border-primary-800"
-        type="number"
-        value={currentValue}
-        onChange={(evt) => handleChange(evt)}
-      />
-    </div>
-  );
-};
+//   function handleChange(evt) {
+//     let value = evt.target.value;
+//     if (value > 0) setCurrentValue(value);
+//   }
+//   return (
+//     <div className="input-element">
+//       <h4 className="mx-4 mb-2">Antall</h4>
+//       <input
+//         className="w-24 p-3 text-gray-600 bg-white border rounded-lg border-primary-800"
+//         type="number"
+//         value={currentValue}
+//         onChange={(evt) => handleChange(evt)}
+//       />
+//     </div>
+//   );
+// };
 
 export default Product;

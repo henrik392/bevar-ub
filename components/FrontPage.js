@@ -13,7 +13,7 @@ const FrontPage = () => {
         <h1 className="">
           Beskytt <br /> laderen din
         </h1>
-        <h3 className="mb-14">Super enkel å bruke</h3>
+        <h3 className="mb-14">Montert på ett klikk</h3>
         <a href="#produkt" className="call-to-action">
           Kjøp nå
         </a>

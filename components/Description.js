@@ -14,9 +14,10 @@ const Description = () => {
           <li>En indre del av gummi for å få grep på laderen</li>
         </ul>
         <p>
-          Beskytteren kommer i en tøypose produsert av Nordnes Verksteder. De
-          tilbyr arbeidsplasser til personer som faller utenfor det ordinære
-          arbeidslivet. Du kan lese om dem{" "}
+          Beskytteren kommer i en{" "}
+          <strong> tøypose produsert av Nordnes Verksteder</strong>. De tilbyr
+          arbeidsplasser til personer som faller utenfor det ordinære
+          arbeidslivet. Les mer om dem{" "}
           <a
             className="underline text-primary-800"
             href="https://nordnes-verksteder.no/om-oss/?gclid=EAIaIQobChMIntTN6O719QIVAdiyCh38kQxDEAAYASABEgIyivD_BwE"

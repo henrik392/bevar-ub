@@ -9,7 +9,9 @@ const Footer = () => {
     <footer className="flex flex-row items-center h-16 bg-wh-endite place responsive-padding place-content-between">
       <div className="flex flex-row items-center w-48">
         <FaEnvelope className="w-5 h-5 mr-2" />
-        <p>bevarub@gmail.com</p>
+        <a href="mailto:bevarub@gmail.com">
+          <p>bevarub@gmail.com</p>
+        </a>
       </div>
 
       <div className="items-center hidden md:flex">
