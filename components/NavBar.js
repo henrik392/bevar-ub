@@ -6,7 +6,7 @@ const NavElements = () => {
     { name: "Hjem", href: "#" },
     { name: "Beskytteren", href: "#description" },
     { name: "Om oss", href: "#om-oss" },
-    { name: "Kontakt", href: "#kontakt" },
+    { name: "Kontakt", href: "mailto:bevarub@gmail.com" },
   ];
 
   // WindowID state
