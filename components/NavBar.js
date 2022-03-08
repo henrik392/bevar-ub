@@ -61,6 +61,7 @@ const NavBar = () => {
           src="/BevarUbLogo.svg"
           width={150}
           height={100}
+          priority
         />
       </div>
       <div

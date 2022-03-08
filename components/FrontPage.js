@@ -7,7 +7,13 @@ const FrontPage = () => {
       className="responsive-padding pt-28 flex flex-row md:place-content-end h-[450px] lg:h-[600px]"
     >
       <div className="lader -rotate-[58deg] ">
-        <Image className="" alt="Lader" src="/Lader.png" layout="fill"></Image>
+        <Image
+          className=""
+          alt="Lader"
+          src="/Lader.png"
+          layout="fill"
+          priority
+        ></Image>
       </div>
       <div className="md:text-right">
         <h1 className="">
