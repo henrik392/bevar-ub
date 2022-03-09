@@ -160,8 +160,8 @@ const SelectColorDropdowns = ({
         options={[
           {
             title:
-              selectedProduct.id.charAt(0).toUpperCase() +
-              selectedProduct.id.slice(1),
+              selectedProduct.staticColors[0][0].toUpperCase() +
+              selectedProduct.staticColors.join(", ").slice(1),
             id: selectedProduct.id,
           },
         ]}
