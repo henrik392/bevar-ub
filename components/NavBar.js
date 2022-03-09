@@ -1,9 +1,11 @@
-import Image from "next/image";
 import { useState, useEffect, useLayoutEffect } from "react";
+
+import Image from "next/image";
+import Link from "next/link";
 
 const NavElements = () => {
   const navItems = [
-    { name: "Hjem", href: "#" },
+    { name: "Hjem", href: "/" },
     { name: "Beskytteren", href: "#description" },
     { name: "Om oss", href: "#om-oss" },
     { name: "Kontakt", href: "mailto:bevarub@gmail.com" },
@@ -25,14 +27,14 @@ const NavElements = () => {
       <li
         key={index}
         className={`${
-          item.href === windowId || (windowId === "" && item.href === "#")
+          item.href === windowId || (windowId === "" && item.href === "/")
             ? "active"
             : ""
         } nav-item`}
       >
-        <a onClick={() => setWindowId(item.href)} href={item.href}>
-          {item.name}
-        </a>
+        <Link href={item.href}>
+          <a onClick={() => setWindowId(item.href)}>{item.name}</a>
+        </Link>
       </li>
     );
   });
@@ -56,13 +58,17 @@ const NavBar = () => {
   return (
     <nav className="flex flex-row w-screen responsive-padding place-content-between">
       <div className="logo">
-        <Image
-          alt="Bevar UB logo"
-          src="/BevarUbLogo.svg"
-          width={150}
-          height={100}
-          priority
-        />
+        <Link href="/">
+          <a>
+            <Image
+              alt="Bevar UB logo"
+              src="/BevarUbLogo.svg"
+              width={150}
+              height={100}
+              priority
+            />
+          </a>
+        </Link>
       </div>
       <div
         className={`${
