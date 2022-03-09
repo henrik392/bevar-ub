@@ -78,10 +78,10 @@ const Salgsvilkår = () => {
           Avtalen er bindende både for deg og oss når vi har mottatt
           bestillingen. Hvis det har skjedd en feil som både du og vi burde
           forstå at er feil gjelder ikke dette. F.eks. hvis du trykket feil og
-          bestilte 100 jakker men bare skulle ha 1 er du ikke bundet til å kjøpe
-          100. Eller hvis du bestiller en sykkel som er gratis fordi det er feil
-          i nettbutikken er vi ikke bundet til å gi deg sykkelen. Vi gir aldri
-          bort varer gratis.
+          bestilte 100 laderbeskyttere, men bare skulle ha 1 er du ikke bundet
+          til å kjøpe 100 stykker. Eller hvis du bestiller et pordukt som er
+          gratis fordi det er feil i nettbutikken er vi ikke bundet til å gi deg
+          produktet. Vi gir aldri bort varer gratis.
         </p>
         <h2>5. Ordrebekreftelse</h2>
         <p>
