@@ -23,18 +23,30 @@ const products = [
     price: 49,
     id: "1stk",
     title: "1 stk - 49 kr",
+    colorOption: true,
   },
   {
     quantity: 3,
     price: 119,
     id: "3stk",
     title: "3 stk - 119 kr [20% rabatt]",
+    colorOption: true,
   },
   {
     quantity: 10,
     price: 299,
     id: "regnbuepakke",
     title: "Regnbuepakke (10 stk) - 299 kr [40% rabatt]",
+    colorOption: false,
+    staticColors: colors,
+  },
+  {
+    quantity: 2,
+    price: 99,
+    id: "ukrainapakke",
+    title: "Ukrainapakke (2 stk) - 99 kr [50% av overskudd går til Ukraina!]",
+    colorOption: false,
+    staticColors: ["Gul", "Blå"],
   },
 ];
 
@@ -57,8 +69,10 @@ const Product = () => {
     setSelectedProduct(product);
     setTotalPrice(product.price);
 
-    if (selectedProductId === "regnbuepakke") {
-      setSelectedColorId(colors.map((color) => color));
+    if (product.staticColors) {
+      setSelectedColorId(
+        product.staticColors.map((color) => color.toLowerCase())
+      );
     } else {
       console.log(product.quantity);
       setSelectedColorId(Array(product.quantity).fill("hvit"));
@@ -139,7 +153,7 @@ const SelectColorDropdowns = ({
   selectedColors,
   selectedProduct,
 }) => {
-  if (selectedProduct.quantity == 10) {
+  if (selectedProduct.staticColors) {
     return (
       <Dropdown
         title={"Farge"}
@@ -158,12 +172,6 @@ const SelectColorDropdowns = ({
   }
 
   const dropDowns = [];
-  // if (selectedProduct.quantity !== selectedColors.length) {
-  //   setSelectedColors([
-  //     ...selectedColors,
-  //     ...Array.fill(selectedProduct.quantity - selectedColors.length),
-  //   ]);
-  // }
   for (let i = 0; i < selectedProduct.quantity; i++) {
     dropDowns.push(
       <div className="flex-1" key={i}>
