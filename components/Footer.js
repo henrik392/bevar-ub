@@ -41,7 +41,9 @@ const Footer = () => {
             <FaInstagram className="w-5 h-5" />
           </a>
         </div>
-        <p className="items-center hidden md:flex">© Bevar UB 2022</p>
+        <p className="items-center hidden md:flex">
+          © Bevar Ungdomsbedrift 2022
+        </p>
         <p className="flex flex-row items-center w-48 place-content-end">
           Org: 928 104 419
         </p>
