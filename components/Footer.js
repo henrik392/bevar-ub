@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-row items-center w-48 place-content-end">
-          <Link href="/salgsvilkar" as="/salgsvilkår">
+          <Link href="/salgsvilkar">
             <a className="underline flex-end text-primary-800">Salgsvilkår</a>
           </Link>
         </div>
