@@ -13,7 +13,8 @@ const colors = [
   "Grønn",
   "Blå",
   "Lilla",
-  "Rosa",
+  "Mørk rosa",
+  "Lys rosa",
 ];
 
 const products = [
