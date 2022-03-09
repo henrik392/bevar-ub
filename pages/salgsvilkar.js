@@ -66,10 +66,12 @@ const Salgsvilkår = () => {
         </p>
         <h2>3. Priser</h2>
         <p>
-          Prisene i nettbutikken inkluderer merverdiavgift. Totalprisen, altså
-          prisen du skal betale inkludert tillegg som frakt og avgifter, er
-          oppgitt i nettbutikken når du bestiller. Dersom du bestiller varer til
-          utlandet eller Svalbard blir merverdiavgift automagisk trukket fra.
+          Vi er en ungdomsbedrift som er registrert i Ungt Entreprenørskap. En
+          ungdomsbedrift skal ikke legge til mva. på sine varer så lenge vi ikke
+          omsetter for mer enn 140 000 kroner. Totalprisen, altså prisen du skal
+          betale inkludert tillegg som frakt og avgifter, er oppgitt i
+          nettbutikken når du bestiller. Dersom du bestiller varer til utlandet
+          eller Svalbard blir merverdiavgift automagisk trukket fra.
         </p>
         <h2>4. Avtaleinngåelse</h2>
         <p>
