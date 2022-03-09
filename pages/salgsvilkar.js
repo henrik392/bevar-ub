@@ -22,7 +22,7 @@ const Salgsvilkår = () => {
       <header>
         <NavBar />
       </header>
-      <main className="section">
+      <main className="py-16 responsive-padding">
         <h1 className="mb-8">Salgsvilkår</h1>
         <h2 className="font-normal">Innhold</h2>
         <ol className="ml-12 list-decimal">
