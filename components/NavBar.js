@@ -32,9 +32,13 @@ const NavElements = () => {
             : ""
         } nav-item`}
       >
-        <Link href={item.href}>
-          <a onClick={() => setWindowId(item.href)}>{item.name}</a>
-        </Link>
+        {item.href.indexOf("mailto:") !== -1 ? (
+          <a href={item.href}>{item.name}</a>
+        ) : (
+          <Link href={item.href}>
+            <a onClick={() => setWindowId(item.href)}>{item.name}</a>
+          </Link>
+        )}
       </li>
     );
   });
