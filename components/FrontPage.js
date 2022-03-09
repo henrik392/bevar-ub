@@ -4,7 +4,7 @@ const FrontPage = () => {
   return (
     <section
       id="front-page"
-      className="responsive-padding pt-28 flex flex-row md:place-content-end h-[450px] lg:h-[600px]"
+      className="responsive-padding pt-28 flex flex-row md:place-content-end md:justify-content-end h-[450px] lg:h-[600px]"
     >
       <div className="lader -rotate-[58deg] ">
         <Image
@@ -15,7 +15,7 @@ const FrontPage = () => {
           priority
         ></Image>
       </div>
-      <div className="md:text-right">
+      <div className="md:text-right md:flex-end flex-end-mac">
         <h1 className="">
           Beskytt <br /> laderen din
         </h1>

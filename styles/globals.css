@@ -99,6 +99,12 @@ a {
   .input-element {
     @apply mb-6;
   }
+
+  .flex-end-mac {
+    -webkit-justify-content: flex-end;
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+  }
 }
 
 .menu-icon {
