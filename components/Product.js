@@ -51,8 +51,8 @@ const products = [
 ];
 
 const Product = () => {
-  const [selectedProductId, setSelectedProductId] = useState(products[0].id);
-  const [selectedProduct, setSelectedProduct] = useState(products[0]);
+  const [selectedProductId, setSelectedProductId] = useState(products[1].id);
+  const [selectedProduct, setSelectedProduct] = useState(products[1]);
   const [selectedColorId, setSelectedColorId] = useState([
     "hvit",
     "hvit",
