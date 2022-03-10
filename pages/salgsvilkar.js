@@ -70,8 +70,7 @@ const Salgsvilkår = () => {
           ungdomsbedrift skal ikke legge til mva. på sine varer så lenge vi ikke
           omsetter for mer enn 140 000 kroner. Totalprisen, altså prisen du skal
           betale inkludert tillegg som frakt og avgifter, er oppgitt i
-          nettbutikken når du bestiller. Dersom du bestiller varer til utlandet
-          eller Svalbard blir merverdiavgift automagisk trukket fra.
+          nettbutikken når du bestiller.
         </p>
         <h2>4. Avtaleinngåelse</h2>
         <p>
@@ -103,16 +102,16 @@ const Salgsvilkår = () => {
           Vi sender varene så fort vi kan til adressen du oppga ved bestilling.
           Leveringstiden varierer med hvilken leveringsmetode du har valgt. Om
           du henter den hos oss, kan du hente den alle skoledager, om du velger
-          å få den sendt i posten vil vi sende varen snarest vi har tid. Pakken
-          sendes med brevpost og tiden det vanligvis tar er oppgitt når du
-          bestiller. Det kan skje at varen blir forsinket utover tiden det
-          vanligvis tar og som vi har opplyst deg når du bestilte, da får du
-          beskjed. Hvis du har ombestemt deg og ikke ønsker varen likevel må du
-          fremdeles ta den imot og sende den tilbake til oss. Hvis ikke tar vi
-          betalt for både frakt og tid med å behandle din ordre, minst 50
-          kroner. Men det er lov å ombestemme seg. Gir du oss beskjed før vi
-          sender varen eller du sender varen(e) tilbake til oss koster det deg
-          ingenting.
+          å få den sendt i posten vil vi sende varen snarest vi har tid, men
+          innen 7 dager. Pakken sendes med brevpost og tiden det vanligvis tar
+          er oppgitt når du bestiller. Det kan skje at varen blir forsinket
+          utover tiden det vanligvis tar og som vi har opplyst deg når du
+          bestilte, da får du beskjed. Hvis du har ombestemt deg og ikke ønsker
+          varen likevel må du fremdeles ta den imot og sende den tilbake til
+          oss. Hvis ikke tar vi betalt for både frakt og tid med å behandle din
+          ordre, minst 50 kroner. Men det er lov å ombestemme seg. Gir du oss
+          beskjed før vi sender varen eller du sender varen(e) tilbake til oss
+          koster det deg ingenting.
         </p>
         <h2>8. Risikoen for varen</h2>
         <p>
