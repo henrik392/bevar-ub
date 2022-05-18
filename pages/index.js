@@ -6,10 +6,12 @@ import Product from "../components/Product";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import Script from "next/script";
+import Banner from "../components/Banner";
 
 const HomePage = () => {
   return (
     <div>
+      <Banner />
       <Head>
         <title>Bevar UB</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />

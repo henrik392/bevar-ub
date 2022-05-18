@@ -4,7 +4,7 @@ const FrontPage = () => {
   return (
     <section
       id="front-page"
-      className="responsive-padding pt-28 flex flex-row md:place-content-end h-[450px] lg:h-[600px]"
+      className="responsive-padding pt-28 flex flex-row md:place-content-end h-[440px] lg:h-[580px]"
     >
       <div className="lader -rotate-[58deg] ">
         <Image

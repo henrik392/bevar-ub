@@ -94,7 +94,7 @@ const Product = () => {
 
   return (
     <section id="produkt" className="section bg-primary-200">
-      <h2 className="mb-10">Kjøp laderbeskytter</h2>
+      <h2 className="mb-10 line-through">Kjøp laderbeskytter</h2>
       <div className="place-content-between bg-clip-border responsive-layout">
         <div
           className="relative image-content lg:!h-[400px]"
@@ -137,9 +137,9 @@ const Product = () => {
               </div>
             </div>
             {/* Remove a-tag when configured Vipps */}
-            <a href={mailto}>
-              <BuyButton selectedProduct={selectedProduct} />
-            </a>
+            {/* <a href={mailto}> */}
+            <BuyButton selectedProduct={selectedProduct} />
+            {/* </a> */}
           </div>
         </div>
       </div>
@@ -200,7 +200,7 @@ const onBuyHandler = (selectedProduct) => {
 const BuyButton = (selectedProduct) => {
   return (
     <button
-      onClick={() => onBuyHandler(selectedProduct)}
+      // onClick={() => onBuyHandler(selectedProduct)}
       className="flex items-center w-full h-10 p-2 font-bold text-white rounded-lg text-l bg-primary-300 border-primary-800 place-content-center"
     >
       <RiShoppingCartLine className="w-6 h-6 mr-2" />
