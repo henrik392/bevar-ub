@@ -28,7 +28,7 @@ const Banner = () => {
               </span>
               <span className="hidden md:inline">
                 Bevar UB avsluttet all salg 17. mai. Vi takker for alle som har
-                støttet oss bedriften 😊
+                støttet oss i bedriften 😊
               </span>
             </p>
           </div>
